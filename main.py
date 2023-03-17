@@ -115,7 +115,7 @@ class DBusService(dbus.service.Object):
         asyncio.run(self.Operation(path, type))
         self.terminado(result['token'], result['codigoerror'], result['mensajeerror'], "res")
         self.solicitudesactivas -= 1
-        asyncio.run(self.PrintToLog(result))
+        asyncio.run(self.print_to_log(result))
         return json.dumps(result)
 
     @dbus.service.signal("com.monitoreointeligente.retotecnico", signature="suss")
@@ -129,14 +129,21 @@ class DBusService(dbus.service.Object):
         """
         pass
 
-    async def PrintToLog(self, result):
+    async def print_to_log(self, result):
+        """
+        Writes the provided result to the log file with the current timestamp.
+
+        :param result: a dictionary containing the token, error code, and error message
+        """
         async with aiofiles.open(self.log_file_path, mode='a') as f:
             current_time = datetime.datetime.now()
             formatted_time = current_time.strftime("%d-%m-%Y %H:%M")
-            contents = await f.write(formatted_time + ":\n"
-                                     "\ttoken: " + result['token'] + "\n" +
-                                     "\tcodigo error: " + str(result['codigoerror']) + "\n" +
-                                     "\tmensaje error: " + result['mensajeerror'] + "\n")
+            contents = await f.write(
+                f"{formatted_time}:\n"
+                f"\ttoken: {result['token']}\n"
+                f"\tcodigo error: {str(result['codigoerror'])}\n"
+                f"\tmensaje error: {result['mensajeerror']}\n"
+            )
             
   
 
