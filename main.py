@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import dbus
 import dbus.service
+import asyncio
 from gi.repository import GLib
 from dbus.mainloop.glib import DBusGMainLoop
 
@@ -17,6 +18,11 @@ class DBusService(dbus.service.Object):
 
         dbus.service.Object.__init__(self, bus_name, "/com/monitoreointeligente/retotecnico")
 
+    async def Operation(self, path, type):
+        with open(path, "a") as file:
+            file.write("you have called me" + "\n")
+
+
     @dbus.service.method(
         "com.monitoreointeligente.retotecnico", in_signature="ss", out_signature="s"
     )
@@ -27,9 +33,7 @@ class DBusService(dbus.service.Object):
         :param type: type of hashcode will be implemented
         :return: result of the hash operation
         """
-        with open(path, "a") as file:
-            file.write("you have called me" + "\n")
-
+        asyncio.run(self.Operation(path, type))
         self.terminado("adqwda", 0, "message", "res")
         return type
 
