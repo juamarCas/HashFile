@@ -8,6 +8,7 @@ from gi.repository import GLib
 from dbus.mainloop.glib import DBusGMainLoop
 import json
 import os
+import datetime
 
 result = {
     'token': '',
@@ -114,6 +115,7 @@ class DBusService(dbus.service.Object):
         asyncio.run(self.Operation(path, type))
         self.terminado(result['token'], result['codigoerror'], result['mensajeerror'], "res")
         self.solicitudesactivas -= 1
+        asyncio.run(self.PrintToLog(result))
         return json.dumps(result)
 
     @dbus.service.signal("com.monitoreointeligente.retotecnico", signature="suss")
@@ -126,6 +128,17 @@ class DBusService(dbus.service.Object):
         :param result: a result string.
         """
         pass
+
+    async def PrintToLog(self, result):
+        async with aiofiles.open(self.log_file_path, mode='a') as f:
+            current_time = datetime.datetime.now()
+            formatted_time = current_time.strftime("%d-%m-%Y %H:%M")
+            contents = await f.write(formatted_time + ":\n"
+                                     "\ttoken: " + result['token'] + "\n" +
+                                     "\tcodigo error: " + str(result['codigoerror']) + "\n" +
+                                     "\tmensaje error: " + result['mensajeerror'] + "\n")
+            
+  
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="path to the ini file")
@@ -145,6 +158,9 @@ if __name__ == '__main__':
     
     maximo_activas_str = config_file["config"]["maximoactivas"]
     logfile_path  = config_file['config']["logfile_path"]
+
+    if not logfile_path:
+        parser.error("You have not set any file path")
 
     maximo_activas = 0
     try:
