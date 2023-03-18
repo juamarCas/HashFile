@@ -9,7 +9,6 @@ from dbus.mainloop.glib import DBusGMainLoop
 import json
 import os
 import datetime
-import copy
 
 result = {
     'token': '',

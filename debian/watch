@@ -5,6 +5,8 @@
 
 # Compulsory line, this is a version 4 file
 version=4
+file=hashfile-*.tar.gz
+tarball=dist/hashfile-*.tar.gz
 
 # PGP signature mangle, so foo.tar.gz has foo.tar.gz.sig
 #opts="pgpsigurlmangle=s%$%.sig%"

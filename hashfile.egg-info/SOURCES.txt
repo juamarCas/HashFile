@@ -1,3 +1,4 @@
+README.md
 setup.py
 hashfile.egg-info/PKG-INFO
 hashfile.egg-info/SOURCES.txt
