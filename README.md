@@ -76,6 +76,13 @@ systemctl start hashService
 ```
 To test the service you can create a client and test its functionality. This is an example client:
 ```python
+import dbus
+from gi.repository import GLib
+from dbus.mainloop.glib import DBusGMainLoop
+
+INTERFACE = "com.monitoreointeligente.retotecnico"
+OBJ_PATH  = "/com/monitoreointeligente/retotecnico"
+BUS_NAME  = "com.monitoreointeligente.retotecnico"
 def handle_signal(token, code, message, result):
     print("res token: ", token)
 
