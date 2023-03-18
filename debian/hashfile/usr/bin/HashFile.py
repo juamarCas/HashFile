@@ -117,7 +117,6 @@ class DBusService(dbus.service.Object):
         self.solicitudesactivas -= 1
         asyncio.run(self.print_to_log(result))
         return json.dumps(result)
-    
 
     @dbus.service.signal("com.monitoreointeligente.retotecnico", signature="suss")
     def terminado(self, token, code, errorMessage, result):
