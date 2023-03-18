@@ -34,7 +34,4 @@ RUN debuild -us -uc -sa -i -I -b --changes-option="-DDistribution=focal" -d -p..
 
 WORKDIR /build/
 
-RUN find ./ -maxdepth 1 -type f -exec cp {} ./package/ \;
-
-
-CMD [ "/bin/bash" ]
+CMD find ./ -maxdepth 1 -type f -exec cp {} ./package/ \;
