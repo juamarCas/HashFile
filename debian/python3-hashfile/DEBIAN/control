@@ -1,0 +1,12 @@
+Package: python3-hashfile
+Source: hashfile
+Version: 1.0.0-1
+Architecture: all
+Maintainer: JuanMartin <juanmartincas@gmail.com>
+Installed-Size: 34
+Depends: python3
+Suggests: python-hashfile-doc
+Section: unknown
+Priority: optional
+Homepage: <insert the upstream URL, if relevant>
+Description: install dependencies

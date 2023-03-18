@@ -1,0 +1,5 @@
+PyGObject
+aiofiles
+argparse
+configparser
+dbus-python

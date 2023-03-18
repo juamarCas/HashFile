@@ -1,0 +1,23 @@
+Source: hashfile
+Section: unknown
+Priority: optional
+Maintainer: JuanMartin <juanmartincas@gmail.com>
+Build-Depends: debhelper-compat (= 13), dh-python, python3-setuptools, python3-all
+Standards-Version: 4.6.0
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/hashfile
+#Vcs-Git: https://salsa.debian.org/debian/hashfile.git
+#Testsuite: autopkgtest-pkg-python
+Rules-Requires-Root: no
+
+Package: python3-hashfile
+Architecture: all
+Depends: python3
+Suggests: python-hashfile-doc
+Description: install dependencies
+
+Package: python-hashfile-doc
+Architecture: all
+Section: doc
+Depends: ${sphinxdoc:Depends}, ${misc:Depends}
+Description: documentation

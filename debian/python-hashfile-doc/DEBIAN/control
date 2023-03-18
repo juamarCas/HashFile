@@ -1,0 +1,10 @@
+Package: python-hashfile-doc
+Source: hashfile
+Version: 1.0.0-1
+Architecture: all
+Maintainer: JuanMartin <juanmartincas@gmail.com>
+Installed-Size: 9
+Section: doc
+Priority: optional
+Homepage: <insert the upstream URL, if relevant>
+Description: documentation

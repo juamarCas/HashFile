@@ -1,0 +1,5 @@
+hashfile (1.0.0-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- JuanMartin <juanmartincas@gmail.com>  Fri, 17 Mar 2023 14:15:07 -0500

@@ -1,0 +1,2 @@
+./debian/hashfile/usr/bin/HashFile.py
+./debian/hashfile/etc/systemd/system/hashService.service
