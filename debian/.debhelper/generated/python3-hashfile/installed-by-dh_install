@@ -1,2 +1,3 @@
 ./debian/hashfile/usr/bin/HashFile.py
 ./debian/hashfile/etc/systemd/system/hashService.service
+./debian/hashfile/usr/bin/HashAPI

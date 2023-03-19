@@ -16,7 +16,7 @@ override_dh_install:
 	cp HashFile.py debian/hashfile/usr/bin
 	mkdir -p debian/hashfile/etc/systemd/system
 	cp debian/hashService.service debian/hashfile/etc/systemd/system
-
+	cp -r debian/HashAPI debian/hashfile/usr/bin
 
 override_dh_auto_build:
     # Build your package as usual
