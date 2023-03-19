@@ -6,6 +6,9 @@ for more information about the D-Bus API, check the [Documentation](https://gith
 
 The Readme contains the following information:
 * [Core files](README.md#core-files)
+* [How to build](README.md#how_to)
+* [Build it using docker](README.md#how_to_docker)
+* [Installing](README.md#installing)
 
 ## Core files
 <a name ="core-files"></a>
@@ -20,6 +23,7 @@ debian->hashfile->etc->systemd->system->hashService.service
 ```
 
 ## How to build it:
+<a name="how_to"></a>
 * Download the files, in case the name of the root directory is giving problems, change it to "hashfile"
 
 * install the following packages
@@ -42,6 +46,7 @@ debuild -us -uc -sa -i -I -b --changes-option="-DDistribution=focal" -d -p../dis
 The deb packages will be located in the root directory  where the project is located.
 
 ## Build it using docker
+<a name="how_to_docker"></a>
 * using the dockerfile, build an image first with the following command:
 ```
 docker build -t <image_name>:<tag> .
@@ -53,6 +58,7 @@ socker run --name <container_name> -v /output/path/of/my/machine:/build/package 
 Note, that only the output path and names should be modified. After running it, all the .deb packages will be in the ouput path
 
 # installing
+<a name="installing"></a>
 * before installing the service, it needs the following package:
 ```
 apt install python3-aiofiles
