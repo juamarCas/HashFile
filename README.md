@@ -2,7 +2,7 @@
 This project is part of the technical test for "monitoreointeligente".</br>
 It is a Dbus service sunning as a systemd service in the background that calculates the checksum of a given file.
 
-for more information about the D-Bus API, check the [Documentation](https://github.com/juamarCas/HashFile/wiki/Documentation)
+for more information about the D-Bus API, and REST API check the [Documentation](https://github.com/juamarCas/HashFile/wiki/Documentation)
 
 The Readme contains the following information:
 * [Core files](README.md#core-files)
