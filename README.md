@@ -4,6 +4,9 @@ It is a Dbus service sunning as a systemd service in the background that calcula
 
 for more information about the D-Bus API, check the [Documentation](https://github.com/juamarCas/HashFile/wiki/Documentation)
 
+The Readme contains the following information:
+* [Core files](https://github.com/juamarCas/HashFile#Hash_File)
+
 ## Core files
 The main application script is located in the following directory:
 ```
