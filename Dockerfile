@@ -12,8 +12,9 @@ RUN apt update -y && \
     apt clean
 
 RUN apt install -y python3-setuptools
-RUN apt-get install -y devscripts debhelper dh-python
-RUN apt-get install python3-all
+RUN apt install -y devscripts debhelper dh-python
+RUN apt install -y python3-aiofiles
+RUN apt install -y python3-all
 
 #for some reason, debhelper-compat is up to version 12, version 13 is needed, and can't be updated
 #so install it manually
